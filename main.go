@@ -1,4 +1,4 @@
-// AULA 2 - STRUCTS | GO - Orientado a Objetos
+// AULA 3 - ULTILIZANDO A STRUCT | GO - Orientado a Objetos
 
 package main
 
@@ -8,11 +8,14 @@ type ContaCorrente struct {
 	titular       string
 	numeroAgencia int
 	numeroDaConta int
-	Saldo         float64
+	saldo         float64
 }
 
 func main() {
+	//	contaDoGuilherme := ContaCorrente{titular: "Guilherme", numeroAgencia: 589, numeroDaConta: 123456, saldo: 125.5}
+	contaDoGuilherme := ContaCorrente{titular: "Guilherme", saldo: 125.5}
+	contaDaBruna := ContaCorrente{"Bruna", 222, 111222, 200.0}
 
-	fmt.Println(ContaCorrente{})
-
+	fmt.Println(contaDoGuilherme)
+	fmt.Println(contaDaBruna)
 }
