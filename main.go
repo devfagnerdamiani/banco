@@ -1,4 +1,4 @@
-// AULA 7 - Mútiplos retornos | GO - Orientado a Objetos
+// AULA 8 - Transferencia entre contas | GO - Orientado a Objetos
 
 package main
 
@@ -40,22 +40,30 @@ func (c *ContaCorrente) Depositar(valorDoDeposito float64) (string, float64) {
 
 }
 
+func (c *ContaCorrente) Transferir(valorDaTransferencia float64, contaDestino *ContaCorrente) bool {
+	if valorDaTransferencia < c.saldo && valorDaTransferencia > 0 {
+		c.saldo -= valorDaTransferencia
+		contaDestino.Depositar(valorDaTransferencia)
+		return true
+	} else {
+
+		return false
+
+	}
+
+}
+
 func main() {
-	contaDaSilvia := ContaCorrente{}
-	contaDaSilvia.titular = "Silvia"
-	contaDaSilvia.saldo = 500
+	contaDaSilvia := ContaCorrente{titular: "Silvia", saldo: 300}
+	contaDoGustavo := ContaCorrente{titular: "Gustavo", saldo: 100}
 
-	fmt.Println(contaDaSilvia.saldo)
-	fmt.Println(contaDaSilvia.Sacar(800.0))
-	fmt.Println(contaDaSilvia.Sacar(-100.0))
-	fmt.Println(contaDaSilvia.Sacar(200.0))
-	fmt.Println(contaDaSilvia.Sacar(400.0))
-	fmt.Println(contaDaSilvia.saldo)
-	fmt.Println(contaDaSilvia.Depositar(2000))
-	fmt.Println(contaDaSilvia.Depositar(-2000))
-	fmt.Println(contaDaSilvia.saldo)
+	fmt.Println(contaDaSilvia, contaDoGustavo)
 
-	status, valor := contaDaSilvia.Depositar(30)
-	fmt.Println("Status: ", status, " | Valor: ", valor)
+	status := contaDaSilvia.Transferir(200, &contaDoGustavo)
+	//	status := contaDaSilvia.Transferir(-300, &contaDoGustavo)
+
+	fmt.Println(status)
+
+	fmt.Println(contaDaSilvia, contaDoGustavo)
 
 }
