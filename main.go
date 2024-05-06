@@ -1,4 +1,4 @@
-// AULA 9 - Pacotes e Visibilidade | GO - Orientado a Objetos
+// AULA 10 - Composição de structs | GO - Orientado a Objetos
 
 package main
 
