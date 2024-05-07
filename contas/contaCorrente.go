@@ -5,10 +5,9 @@ import (
 )
 
 type ContaCorrente struct {
-	Titular       clientes.Titular
-	NumeroAgencia int
-	NumeroDaConta int
-	saldo         float64 // Visualização de saldo alterado apenas para leitura interna deste arquivo
+	Titular                      clientes.Titular
+	NumeroAgencia, NumeroDaConta int
+	saldo                        float64 // Visualização de saldo alterado apenas para leitura interna deste arquivo
 }
 
 func (c *ContaCorrente) Sacar(valorDoSaque float64) string {
