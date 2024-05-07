@@ -1,25 +1,23 @@
-// AULA 10 - Composição de structs | GO - Orientado a Objetos
+// AULA 11 - Tipos aninhados | GO - Orientado a Objetos
+
+// go mod init // ########## CÓDIGO PARA CRIAR MÓDULOS NA PASTA RAÍZ ( Onde esta o arquivo main.go )
 
 package main
 
 import (
-	"banco/contas" // Pacote personalizado
-	// c	"banco/contas" // Pacote personalizado com apelido "c"
+	"banco/clientes"
+	"banco/contas"
 	"fmt"
 )
 
+// Pacote personalizado
+// c	"banco/contas" // Pacote personalizado com apelido "c"
+
 func main() {
-
-	contaDaSilvia := contas.ContaCorrente{Titular: "Silvia", Saldo: 300}
-	contaDoGustavo := contas.ContaCorrente{Titular: "Gustavo", Saldo: 100}
-
-	fmt.Println(contaDaSilvia, contaDoGustavo)
-
-	status := contaDaSilvia.Transferir(200, &contaDoGustavo)
-	//	status := contaDaSilvia.Transferir(-300, &contaDoGustavo)
-
-	fmt.Println(status)
-
-	fmt.Println(contaDaSilvia, contaDoGustavo)
-
+	contaDoBruno := contas.ContaCorrente{Titular: clientes.Titular{
+		Nome:      "Bruno",
+		CPF:       "123.111.123.12",
+		Profissao: "Desenvolvedor"},
+		NumeroAgencia: 123, NumeroDaConta: 123456, Saldo: 100}
+	fmt.Println(contaDoBruno)
 }
